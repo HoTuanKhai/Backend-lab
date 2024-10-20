@@ -99,14 +99,16 @@ const Product = mongoose.model("Product",{
 app.post('/addproduct', async(req,res)=>{
     let products = await Product.find({});
     let id;
+    // Check if there are existing products
     if (products.length>0) {
-        let last_product_array = products.slice(-1);
+        let last_product_array = products.slice(-1); //get last product in the array
         let last_product = last_product_array[0];
-        id = last_product.id+1;
+        id = last_product.id+1; // Increment the ID
     }
     else{
-        id=1;
+        id=1; // If no products exist, set Id to 1
     }
+    // Create a new product
     const product = new Product({
         id:id,
         name:req.body.name,
@@ -116,8 +118,10 @@ app.post('/addproduct', async(req,res)=>{
         old_price:req.body.old_price, 
     });
     console.log(product);
+    // Save the product to the database
     await product.save();
     console.log("Saved");
+    // Send the response back to client
     res.json({
         success: true,
         name: req.body.name,

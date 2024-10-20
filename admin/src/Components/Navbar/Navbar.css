@@ -7,20 +7,20 @@
     margin-bottom: 1px;
     background: white;
 }
-.navbar-logo{
+.nav-logo{
     width: 200px;
 }
-.navbar-profile{
+.nav-profile{
     width: 75px;
 }
 @media(max-width: 800px){
     .navbar{
         padding: 15px 30px;
     }
-    .navbar-logo{
+    .nav-logo{
         width: 150px;
     }
-    .navbar-profile{
+    .nav-profile{
         width: 60px;
     }
 }
